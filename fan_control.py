@@ -37,16 +37,18 @@ try:
 			GPIO.output(SLOW, GPIO.LOW)
 			GPIO.output(FAST, GPIO.HIGH)
 			POLL_TIME = 5
+
 		elif (current_temp <= MAX_TEMP) and (current_temp > MIN_TEMP):
 			print 'Setting fan speed to LOW'
-			GPIO.output(SLOW, GPIO.HIGH)
 			GPIO.output(FAST, GPIO.LOW)
+			GPIO.output(SLOW, GPIO.HIGH)
 			POLL_TIME = 10
 		else:
 			print 'Turn the fan off!'
 			GPIO.output(SLOW, GPIO.LOW)
 			GPIO.output(FAST, GPIO.LOW)
 			POLL_TIME = 15
+
 		time.sleep(POLL_TIME)
 		
 except KeyboardInterrupt:
