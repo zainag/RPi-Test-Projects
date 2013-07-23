@@ -41,7 +41,7 @@ class App():
 		try:
 			while True:
 				current_temp = get_temperature()
-				logstr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ' - current temp is ' + str(current_temp)
+				logstr = 'Current temp is ' + str(current_temp)
 				logger.info(logstr);
 				
 				if	current_temp > MAX_TEMP:
