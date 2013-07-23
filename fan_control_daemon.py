@@ -67,10 +67,6 @@ class App():
 			logger.error('Exiting now!')
 		finally:
 			GPIO.cleanup()
-		logger.debug("Debug message")
-		logger.info("Info message")
-		logger.warn("Warning message")
-		logger.error("Error message")
 
 app = App()
 logger = logging.getLogger("DaemonLog")
