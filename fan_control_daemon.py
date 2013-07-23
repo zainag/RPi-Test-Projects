@@ -16,9 +16,6 @@ SLOW = 25
 MAX_TEMP = 50
 MIN_TEMP = 40
 POLL_TIME = 5
- 
-GPIO.setup(FAST, GPIO.OUT)
-GPIO.setup(SLOW, GPIO.OUT)
 
 def get_temperature():
     # Returns the temperature in degrees C
@@ -39,6 +36,8 @@ class App():
 		self.pidfile_timeout = 5
            
 	def run(self):
+		GPIO.setup(FAST, GPIO.OUT)
+		GPIO.setup(SLOW, GPIO.OUT)
 		try:
 			while True:
 				current_temp = get_temperature()
@@ -64,7 +63,7 @@ class App():
 
 				time.sleep(POLL_TIME)
 				
-		except KeyboardInterrupt:
+		except:
 			logger.error('Exiting now!')
 		finally:
 			GPIO.cleanup()
